@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <WagmiConfig client={wagmiClient}>
-        <main className="flex flex-col w-screen min-h-screen">
+        <main className="flex flex-col w-screen min-h-screen stripes-bg">
           <header className="w-full px-4 py-6 bg-neutral">
             <div className="container mx-auto flex flex-row items-center justify-between">
               <div>Trump CEO Mint</div>
@@ -37,11 +37,9 @@ function App() {
               </div>
             </div>
           </header>
-          <div className="flex flex-row flex-grow items-center justify-between container mx-auto">
+          <div className="flex flex-col md:flex-row flex-grow items-center justify-between container mx-auto">
             <div>Image 1</div>
-            <div>
-              <MintCard />
-            </div>
+            <MintCard />
             <div>Image2</div>
           </div>
         </main>
@@ -56,7 +54,7 @@ export default App;
 const MintCard = () => {
   const [amount, setAmount] = useState<number | "">("");
   return (
-    <div className="card w-96 bg-base-100 shadow-xl border-2 border-primary shadow-secondary">
+    <div className="card w-96 max-w-[80%] bg-base-100 shadow-xl border-2 border-primary shadow-secondary">
       <div className="card-body items-center text-center">
         <h1 className="text-accent card-title">
           <img src={flag} className="w-18 h-12" />
@@ -68,13 +66,13 @@ const MintCard = () => {
           admin of the project to elaborate on this. In the meantime a short
           summary like this will suffice
         </p>
-        <div className="grid grid-cols-2 grid-rows-3 justify-between">
-          <div className="text-left">Current Round:</div>{" "}
-          <div className=" text-accent ml-auto">1</div>
-          <div className="text-left">Total Minted:</div>{" "}
-          <div className=" text-accent ml-auto">3888</div>
-          <div className="text-left">Price: </div>
-          <div className=" text-accent ml-auto">100 USDT</div>
+        <div className="grid grid-cols-5 grid-rows-3 justify-between">
+          <div className="text-left col-span-3">Current Round:</div>{" "}
+          <div className=" text-accent ml-auto col-span-2">1</div>
+          <div className="text-left col-span-3">Total Minted:</div>{" "}
+          <div className=" text-accent ml-auto col-span-2">3888</div>
+          <div className="text-left col-span-3">Price: </div>
+          <div className=" text-accent ml-auto col-span-2">100 USDT</div>
         </div>
         <input
           type="number"
