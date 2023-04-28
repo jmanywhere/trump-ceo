@@ -16,7 +16,7 @@ contract TrumpCeoNft is ERC721, Ownable, ReentrancyGuard {
         uint16 idsMinted;
         bool active;
     }
-    mapping(address => uint8) private mintedAmount;
+    mapping(address => mapping(uint8 => uint8)) private mintedAmount; // TODO - needs implmenetation pending response from client
     mapping(uint8 => RoundInfo) private rounds;
     AggregatorV3Interface public bnbPriceFeed;
     string private hiddenUri;
