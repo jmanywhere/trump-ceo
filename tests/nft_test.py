@@ -102,3 +102,6 @@ def test_uri(setup, accounts):
     assert nft.tokenURI(1) == "https://example.com"
     with reverts("ERC721: invalid token ID"):
         nft.tokenURI(0)
+
+    nft.setRoundURI(1, "https://ex2.com/", sender=owner)
+    assert nft.tokenURI(1) == "https://ex2.com/1/metadata.json"
