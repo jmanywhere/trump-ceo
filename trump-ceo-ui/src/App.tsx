@@ -8,6 +8,8 @@ import { useState } from "react";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { bsc, bscTestnet } from "wagmi/chains";
 import flag from "/america.gif";
+import logo from "/logo.png";
+import gif from "/trump_nfts.gif";
 
 const chains = [bsc, bscTestnet];
 const projectId = import.meta.env.VITE_PROJECT_ID;
@@ -29,18 +31,27 @@ function App() {
     <>
       <WagmiConfig client={wagmiClient}>
         <main className="flex flex-col w-screen min-h-screen stripes-bg">
-          <header className="w-full px-4 py-6 bg-neutral">
+          <header className="w-full px-4 py-6 bg-white shadow-2xl">
             <div className="container mx-auto flex flex-row items-center justify-between">
-              <div>Trump CEO Mint</div>
-              <div>
+              <div className="flex flex-row items-center">
+                <img src={logo} className="w-[calc(700px/10)] h-[820px/10]" />
+                <div className="text-4xl font-bold pl-4 pb-3">
+                  Trump CEO NFT
+                </div>
+              </div>
+              <div className="pb-2">
                 <Web3Button />
               </div>
             </div>
           </header>
-          <div className="flex flex-col md:flex-row flex-grow items-center justify-between container mx-auto">
-            <div>Image 1</div>
+          <div className="flex flex-col lg:flex-row flex-grow items-center justify-between container mx-auto pb-8">
+            <div className="rounded-xl overflow-hidden hidden lg:block border-2 border-primary shadow-md shadow-secondary">
+              <img src={gif} className="w-[calc(982px/3)] h-[calc(1200px/3)]" />
+            </div>
             <MintCard />
-            <div>Image2</div>
+            <div className="rounded-xl overflow-hidden border-2 border-primary shadow-md shadow-secondary">
+              <img src={gif} className="w-[calc(982px/3)] h-[calc(1200px/3)]" />
+            </div>
           </div>
         </main>
       </WagmiConfig>
@@ -54,7 +65,7 @@ export default App;
 const MintCard = () => {
   const [amount, setAmount] = useState<number | "">("");
   return (
-    <div className="card w-96 max-w-[80%] bg-base-100 shadow-xl border-2 border-primary shadow-secondary">
+    <div className="card w-96 max-w-[80%] bg-base-100 shadow-xl border-2 border-primary shadow-secondary mx-4 my-12 lg:my-0">
       <div className="card-body items-center text-center">
         <h1 className="text-accent card-title">
           <img src={flag} className="w-18 h-12" />
