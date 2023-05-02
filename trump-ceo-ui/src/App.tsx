@@ -84,7 +84,7 @@ const MintCard = () => {
   const [amount, setAmount] = useState<number | "">("");
   const [loading, setLoading] = useState(false);
   const { address } = useAccount();
-  const { data, refetch } = useContractReads({
+  const { data } = useContractReads({
     contracts: [
       {
         address: nftToken,
