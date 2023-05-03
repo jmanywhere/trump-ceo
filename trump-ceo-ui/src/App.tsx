@@ -181,7 +181,7 @@ const MintCard = () => {
           <div className=" text-accent ml-auto col-span-2">1</div>
           <div className="text-left col-span-3">Total Minted:</div>{" "}
           <div className=" text-accent ml-auto col-span-2">
-            {data?.[0].toString() || "-"}
+            {data?.[0]?.toString() || "-"}
           </div>
           <div className="text-left col-span-3">Price: </div>
           <div className=" text-accent ml-auto col-span-2">100 USDT</div>
