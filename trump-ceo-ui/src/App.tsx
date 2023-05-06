@@ -25,11 +25,11 @@ import { BigNumber, constants } from "ethers";
 import { parseEther } from "ethers/lib/utils.js";
 import classNames from "classnames";
 
-const nftToken = "0x53f163540480F34f3B98E5eed94fb0fe857ec564"; // Change this to MAINNET WHEN DEPLOYED
+const nftToken = "0xe14851B546F30062841F29bD10377aFa3B3ADA23";
 const usdt = "0x55d398326f99059fF775485246999027B3197955";
 const bnbPriceFeed = "0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE";
 
-const chains = [bsc, bscTestnet];
+const chains = [bsc];
 const projectId = import.meta.env.VITE_PROJECT_ID;
 console.log(import.meta.env);
 if (!projectId) {
@@ -168,13 +168,17 @@ const MintCard = () => {
       <div className="card-body items-center text-center">
         <h1 className="text-accent card-title">
           <img src={flag} className="w-18 h-12" />
-          Mint Your NFT
+          NFT Minting
           <img src={flag} className="w-18 h-12" />
         </h1>
-        <p className="text-justify">
-          Some text to convince you why you need this NFT, honestly we need the
-          admin of the project to elaborate on this. In the meantime a short
-          summary like this will suffice
+        <p className="text-justify whitespace-pre-wrap">
+          <span className="w-full text-center block text-xl font-bold text-accent">
+            1000 Unique NFTs.
+          </span>
+          $10,000 in prize giveaway after minting{"\n"}
+          NFTs will be able to be staked and get bonus USDT reflections
+          generated from CEX listings in the very near future.{"\n"}
+          Max 5 per wallet.
         </p>
         <div className="grid grid-cols-5 grid-rows-3 justify-between">
           <div className="text-left col-span-3">Current Round:</div>{" "}

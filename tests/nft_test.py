@@ -52,6 +52,13 @@ def test_mint(setup, accounts):
         nft.mint(False, mint_amount_2, sender=user1, value=mint_value_2)
 
     assert nft.totalSupply() == mint_amount
+    with reverts():
+        nft.ownerOf(0)
+    assert nft.ownerOf(1) == user1.address
+    assert nft.ownerOf(2) == user1.address
+    assert nft.ownerOf(3) == user1.address
+    assert nft.ownerOf(4) == user1.address
+    assert nft.ownerOf(5) == user1.address
 
     # usdt send from whale to user2 and approve usdt to spend by NFT
     nft_price = 100 * int(1e18)
