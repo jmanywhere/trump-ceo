@@ -15,7 +15,7 @@ import {
   usePrepareContractWrite,
   WagmiConfig,
 } from "wagmi";
-import { bsc, bscTestnet } from "wagmi/chains";
+import { bsc } from "wagmi/chains";
 import flag from "/america.gif";
 import logo from "/logo.png";
 import gif from "/trump_nfts.gif";
