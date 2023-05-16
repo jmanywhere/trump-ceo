@@ -10,7 +10,7 @@ export default {
       {
         mytheme: {
           "primary": "#4A5A9C",
-          "secondary": "#DA3434",
+          "secondary": "#B11012",
           "accent": "#7B7B7F",
           "neutral": "#bfdbfe",
           "base-100": "#F3F4F7",
@@ -23,7 +23,13 @@ export default {
     ],
   },
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'zen': ['Zen Dots', 'sans-serif']
+      },
+      colors: {
+      }
+    },
   },
   plugins: [daisyui],
 }

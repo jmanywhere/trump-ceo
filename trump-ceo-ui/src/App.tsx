@@ -17,7 +17,7 @@ import {
 } from "wagmi";
 import { bsc } from "wagmi/chains";
 import flag from "/america.gif";
-import logo from "/logo.png";
+import logo from "/logo2.png";
 import gif from "/trump_nfts.gif";
 import nftAbi from "./data/nftAbi";
 import priceFeedAbi from "./data/bnbPriceFeed";
@@ -49,19 +49,25 @@ function App() {
     <>
       <WagmiConfig client={wagmiClient}>
         <main className="flex flex-col w-screen min-h-screen stripes-bg">
-          <header className="w-full px-4 py-6 bg-white shadow-2xl">
-            <div className="container mx-auto flex flex-row items-center justify-between">
-              <div className="flex flex-row items-center">
-                <img src={logo} className="w-[calc(700px/10)] h-[820px/10]" />
-                <div className="text-4xl font-bold pl-4 pb-3">
-                  Trump CEO NFT
-                </div>
-              </div>
-              <div className="pb-2">
-                <Web3Button />
-              </div>
+          <header className="w-full bg-secondary shadow-2xl">
+            <div className="container py-2 mx-auto px-4 flex flex-row items-center justify-between">
+              <a
+                href="https://trumparmy.co"
+                target="_blank"
+                className="text-sm md:text-2xl uppercase font-bold font-zen text-white pt-1"
+              >
+                Trump Army NFT
+              </a>
+              <Web3Button />
             </div>
           </header>
+          <div className="w-full bg-black text-white/80 py-2">
+            <nav className="w-full font-zen  px-4 container mx-auto flex flex-wrap gap-x-6 items-center">
+              <img src={logo} className="w-[calc(700px/10)] h-[820px/10]" />
+              <a href="https://trumparmy.co/#about">About Us</a>
+              <a href="https://trumparmy.co/#roadmap">Roadmap</a>
+            </nav>
+          </div>
           <div className="flex flex-col lg:flex-row flex-grow items-center justify-between container mx-auto pb-8">
             <div className="rounded-xl overflow-hidden hidden lg:block border-2 border-primary shadow-md shadow-secondary">
               <img src={gif} className="w-[calc(982px/3)] h-[calc(1200px/3)]" />
@@ -166,13 +172,13 @@ const MintCard = () => {
   return (
     <div className="card w-96 max-w-[80%] bg-base-100 shadow-xl border-2 border-primary shadow-secondary mx-4 my-12 lg:my-0">
       <div className="card-body items-center text-center">
-        <h1 className="text-accent card-title">
+        <h1 className="text-accent card-title font-zen">
           <img src={flag} className="w-18 h-12" />
           NFT Minting
           <img src={flag} className="w-18 h-12" />
         </h1>
         <p className="text-justify whitespace-pre-wrap">
-          <span className="w-full text-center block text-xl font-bold text-accent">
+          <span className="w-full text-center block text-xl font-bold text-accent-focus font-zen">
             1000 Unique NFTs.
           </span>
           $10,000 in prize giveaway after minting{"\n"}
@@ -180,7 +186,7 @@ const MintCard = () => {
           generated from CEX listings in the very near future.{"\n"}
           Max 5 per wallet.
         </p>
-        <div className="grid grid-cols-5 grid-rows-3 justify-between">
+        <div className="grid grid-cols-5 grid-rows-3 justify-between font-zen">
           <div className="text-left col-span-3">Current Round:</div>{" "}
           <div className=" text-accent ml-auto col-span-2">1</div>
           <div className="text-left col-span-3">Total Minted:</div>{" "}
