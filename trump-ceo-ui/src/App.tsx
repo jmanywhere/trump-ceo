@@ -3,7 +3,7 @@ import {
   w3mConnectors,
   w3mProvider,
 } from "@web3modal/ethereum";
-import { Web3Button, Web3Modal } from "@web3modal/react";
+import { Web3Button, Web3Modal, useWeb3Modal } from "@web3modal/react";
 import { useState } from "react";
 import {
   configureChains,
@@ -39,7 +39,7 @@ if (!projectId) {
 const { provider } = configureChains(chains, [w3mProvider({ projectId })]);
 const wagmiClient = createClient({
   autoConnect: true,
-  connectors: w3mConnectors({ projectId, version: 2, chains }),
+  connectors: w3mConnectors({ projectId, version: 1, chains }),
   provider,
 });
 const ethereumClient = new EthereumClient(wagmiClient, chains);
@@ -90,6 +90,7 @@ const MintCard = () => {
   const [amount, setAmount] = useState<number | "">("");
   const [loading, setLoading] = useState(false);
   const { address } = useAccount();
+  const { open } = useWeb3Modal();
   const { data } = useContractReads({
     contracts: [
       {
@@ -219,6 +220,10 @@ const MintCard = () => {
               loading ? "btn-disabled" : ""
             )}
             onClick={() => {
+              if (!address) {
+                open();
+                return;
+              }
               if (!mintWithBnb) return;
               setLoading(true);
               void mintWithBnb()
@@ -241,6 +246,10 @@ const MintCard = () => {
               loading ? "btn-disabled" : ""
             )}
             onClick={() => {
+              if (!address) {
+                open();
+                return;
+              }
               if (data?.[2]?.gte(parseEther("100")) || false) {
                 if (!mintWithUSDT) return;
                 setLoading(true);
